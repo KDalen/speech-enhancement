@@ -1,5 +1,5 @@
-torch
-
-
-
--e .
+fastapi
+uvicorn
+numpy
+scipy
+soundfile

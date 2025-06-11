@@ -1,18 +1,19 @@
 from setuptools import find_packages, setup
 from typing import List
 
-HYPEN_E_DOT = '-e .'
-def get_requirements(file_path:str)->List[str]:
-    '''
-    this function will return a l;ist of all the requirements
-    '''
-    requirements = []
+HYPHEN_E_DOT = "-e ."
+
+
+def get_requirements(file_path: str) -> List[str]:
+    """Return a list of requirements from the given file."""
+
+    requirements: List[str] = []
     with open(file_path) as f:
-        requirements = f.readlines()
-        requiremetns = [req.replace('\n','') for req in requirements]
-    
-        if HYPEN_E_DOT in requirements:
-            requirements.remove(HYPEN_E_DOT)
+        requirements = [req.strip() for req in f.readlines()]
+
+    if HYPHEN_E_DOT in requirements:
+        requirements.remove(HYPHEN_E_DOT)
+
     return requirements
 
 setup(
@@ -21,5 +22,5 @@ setup(
     version='0.1',
     author='Kai',
     packages=find_packages(),
-    install_requires=get_requirements('requirements.txt')
+    install_requires=get_requirements("requirements.txt"),
 )
